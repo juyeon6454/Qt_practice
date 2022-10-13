@@ -1,0 +1,12 @@
+debug/clientitem.o
+debug/clientmanagerform.o
+debug/main.o
+debug/mainwindow.o
+debug/orderitem.o
+debug/ordermanagerform.o
+debug/productitem.o
+debug/productmanagerform.o
+debug/moc_clientmanagerform.o
+debug/moc_mainwindow.o
+debug/moc_ordermanagerform.o
+debug/moc_productmanagerform.o
