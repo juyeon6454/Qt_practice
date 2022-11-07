@@ -9,6 +9,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     /*RSS 피드를 열기 위한 콤보박스*/
     combo = new QComboBox;
+    ListView * lv = new ListView;
+    combo->setView(lv);
     combo -> setEditable(true);
     combo -> setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     connect(combo, SIGNAL(activated(int)),SLOT(openRssFeed()));
@@ -45,4 +47,17 @@ void MainWindow::replyFinished(QNetworkReply* netReply)
 {
     QString str(netReply->readAll());
     qDebug("%s",qPrintable(str));
+}
+
+void ListView::keyPressEvent(QKeyEvent * event)
+{
+    if(event->key() == Qt::Key_Delete){
+        event->accept();
+        QModelIndexList l = selectedIndexes();
+        if(l.length()>0){
+            model()->removeRow(l.at(0).row(),l.at(0).parent());
+        }
+    }else{
+        QListView::keyPressEvent(event);
+    }
 }
