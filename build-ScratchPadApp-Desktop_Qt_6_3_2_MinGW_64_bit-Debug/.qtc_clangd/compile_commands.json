@@ -34,7 +34,7 @@
         "-I",
         "C:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\qt practice_h\\ScratchPadApp",
+        "C:\\ScratchPad\\ScratchPadApp",
         "-I",
         "C:\\Qt\\6.3.2\\mingw_64\\include",
         "-I",
@@ -44,9 +44,9 @@
         "-I",
         "C:\\Qt\\6.3.2\\mingw_64\\include\\QtCore",
         "-I",
-        "C:\\qt practice_h\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug\\debug",
+        "C:\\qt practice\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug\\debug",
         "-I",
-        "C:\\qt practice_h\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug",
+        "C:\\qt practice\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug",
         "-I",
         "C:\\Qt\\6.3.2\\mingw_64\\mkspecs\\win32-g++",
         "-isystem",
@@ -66,10 +66,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\qt practice_h\\ScratchPadApp\\main.cpp"
+        "C:\\ScratchPad\\ScratchPadApp\\main.cpp"
     ],
-    "directory": "C:/qt practice_h/build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/qt practice_h/ScratchPadApp/main.cpp"
+    "directory": "C:/qt practice/build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
+    "file": "C:/ScratchPad/ScratchPadApp/main.cpp"
 },
 {
     "arguments": [
@@ -106,7 +106,7 @@
         "-I",
         "C:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\qt practice_h\\ScratchPadApp",
+        "C:\\ScratchPad\\ScratchPadApp",
         "-I",
         "C:\\Qt\\6.3.2\\mingw_64\\include",
         "-I",
@@ -116,9 +116,9 @@
         "-I",
         "C:\\Qt\\6.3.2\\mingw_64\\include\\QtCore",
         "-I",
-        "C:\\qt practice_h\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug\\debug",
+        "C:\\qt practice\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug\\debug",
         "-I",
-        "C:\\qt practice_h\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug",
+        "C:\\qt practice\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug",
         "-I",
         "C:\\Qt\\6.3.2\\mingw_64\\mkspecs\\win32-g++",
         "-isystem",
@@ -138,10 +138,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\qt practice_h\\ScratchPadApp\\mainwindow.cpp"
+        "C:\\ScratchPad\\ScratchPadApp\\mainwindow.cpp"
     ],
-    "directory": "C:/qt practice_h/build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/qt practice_h/ScratchPadApp/mainwindow.cpp"
+    "directory": "C:/qt practice/build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
+    "file": "C:/ScratchPad/ScratchPadApp/mainwindow.cpp"
 },
 {
     "arguments": [
@@ -178,7 +178,7 @@
         "-I",
         "C:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\qt practice_h\\ScratchPadApp",
+        "C:\\ScratchPad\\ScratchPadApp",
         "-I",
         "C:\\Qt\\6.3.2\\mingw_64\\include",
         "-I",
@@ -188,9 +188,9 @@
         "-I",
         "C:\\Qt\\6.3.2\\mingw_64\\include\\QtCore",
         "-I",
-        "C:\\qt practice_h\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug\\debug",
+        "C:\\qt practice\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug\\debug",
         "-I",
-        "C:\\qt practice_h\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug",
+        "C:\\qt practice\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug",
         "-I",
         "C:\\Qt\\6.3.2\\mingw_64\\mkspecs\\win32-g++",
         "-isystem",
@@ -210,10 +210,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\qt practice_h\\ScratchPadApp\\scratchpad.cpp"
+        "C:\\ScratchPad\\ScratchPadApp\\scratchpad.cpp"
     ],
-    "directory": "C:/qt practice_h/build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/qt practice_h/ScratchPadApp/scratchpad.cpp"
+    "directory": "C:/qt practice/build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
+    "file": "C:/ScratchPad/ScratchPadApp/scratchpad.cpp"
 },
 {
     "arguments": [
@@ -250,7 +250,7 @@
         "-I",
         "C:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\qt practice_h\\ScratchPadApp",
+        "C:\\ScratchPad\\ScratchPadApp",
         "-I",
         "C:\\Qt\\6.3.2\\mingw_64\\include",
         "-I",
@@ -260,9 +260,9 @@
         "-I",
         "C:\\Qt\\6.3.2\\mingw_64\\include\\QtCore",
         "-I",
-        "C:\\qt practice_h\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug\\debug",
+        "C:\\qt practice\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug\\debug",
         "-I",
-        "C:\\qt practice_h\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug",
+        "C:\\qt practice\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug",
         "-I",
         "C:\\Qt\\6.3.2\\mingw_64\\mkspecs\\win32-g++",
         "-isystem",
@@ -282,10 +282,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\qt practice_h\\ScratchPadApp\\mainwindow.h"
+        "C:\\ScratchPad\\ScratchPadApp\\mainwindow.h"
     ],
-    "directory": "C:/qt practice_h/build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/qt practice_h/ScratchPadApp/mainwindow.h"
+    "directory": "C:/qt practice/build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
+    "file": "C:/ScratchPad/ScratchPadApp/mainwindow.h"
 },
 {
     "arguments": [
@@ -322,7 +322,7 @@
         "-I",
         "C:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\qt practice_h\\ScratchPadApp",
+        "C:\\ScratchPad\\ScratchPadApp",
         "-I",
         "C:\\Qt\\6.3.2\\mingw_64\\include",
         "-I",
@@ -332,9 +332,9 @@
         "-I",
         "C:\\Qt\\6.3.2\\mingw_64\\include\\QtCore",
         "-I",
-        "C:\\qt practice_h\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug\\debug",
+        "C:\\qt practice\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug\\debug",
         "-I",
-        "C:\\qt practice_h\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug",
+        "C:\\qt practice\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug",
         "-I",
         "C:\\Qt\\6.3.2\\mingw_64\\mkspecs\\win32-g++",
         "-isystem",
@@ -354,10 +354,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\qt practice_h\\ScratchPadApp\\scratchpad.h"
+        "C:\\ScratchPad\\ScratchPadApp\\scratchpad.h"
     ],
-    "directory": "C:/qt practice_h/build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/qt practice_h/ScratchPadApp/scratchpad.h"
+    "directory": "C:/qt practice/build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
+    "file": "C:/ScratchPad/ScratchPadApp/scratchpad.h"
 },
 {
     "arguments": [
@@ -394,7 +394,7 @@
         "-I",
         "C:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\qt practice_h\\ScratchPadApp",
+        "C:\\ScratchPad\\ScratchPadApp",
         "-I",
         "C:\\Qt\\6.3.2\\mingw_64\\include",
         "-I",
@@ -404,9 +404,9 @@
         "-I",
         "C:\\Qt\\6.3.2\\mingw_64\\include\\QtCore",
         "-I",
-        "C:\\qt practice_h\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug\\debug",
+        "C:\\qt practice\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug\\debug",
         "-I",
-        "C:\\qt practice_h\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug",
+        "C:\\qt practice\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug",
         "-I",
         "C:\\Qt\\6.3.2\\mingw_64\\mkspecs\\win32-g++",
         "-isystem",
@@ -426,9 +426,9 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\qt practice_h\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug\\ui_mainwindow.h"
+        "C:\\qt practice\\build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug\\ui_mainwindow.h"
     ],
-    "directory": "C:/qt practice_h/build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/qt practice_h/build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/ui_mainwindow.h"
+    "directory": "C:/qt practice/build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
+    "file": "C:/qt practice/build-ScratchPadApp-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/ui_mainwindow.h"
 }
 ]
