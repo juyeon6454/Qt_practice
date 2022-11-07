@@ -1,7 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QComboBox>
 #include <QMainWindow>
+#include <QNetworkReply>
 
 class MainWindow : public QMainWindow
 {
@@ -10,5 +12,14 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+public slots:
+    void openRssFeed();
+    void replyFinished(QNetworkReply*);
+private:
+    QComboBox* combo;
+    QNetworkAccessManager* manager;
+
+
 };
 #endif // MAINWINDOW_H
