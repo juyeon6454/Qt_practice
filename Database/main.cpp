@@ -11,8 +11,8 @@
 static bool createConnection()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-//    db.setDatabaseName(":memory:");//메모리 저장
-    db.setDatabaseName("./tmp");//파일로저장
+    db.setDatabaseName(":memory:");//메모리 저장
+   // db.setDatabaseName("./tmp");//파일로저장
     if(!db.open()) return false;
 
     QSqlQuery query;
