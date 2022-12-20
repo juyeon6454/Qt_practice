@@ -49,21 +49,56 @@ void Widget::resizeGL(int w, int h)
 void Widget::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT);
-    glColor3f(1.0,1.0,1.0);
+    glColor3f(1.0,1.0,1.0); //r,g,b 색상 : 흰색
 
-    glBegin(GL_POLYGON);
+    //glBegin(GL_POLYGON);
+    //glPointSize(10.0);
+   // glEnable(GL_POINT_SMOOTH);
+
+    GLfloat w = 1,y;
+    for(y=0.8; y > -0.8; y -= 0.2) {
+        glLineWidth(w++);
+        glBegin(GL_LINES);
+        glVertex2f(-0.8, y);
+        glVertex2f(0.8,y);
+        glEnd();
+
+    };
+
+
+//    GLfloat x = -0.8;
+//    GLfloat y = 0.4;
+//    for(int i = 0; i < 6; i++){
+//        glVertex2f(x,y);
+//        x += 0.3;
+//        y *= -1;
+//    }; //직선3개
+
+
+
 //    glVertex3f(rectPosX, rectPosY, 0.0);
 //    glVertex3f(rectPosX, rectPosY - rectSize, 0.0);
 //    glVertex3f(rectPosX + rectSize, rectPosY - rectSize, 0.0);
-//    glVertex3f(rectPosX + rectSize, rectPosY, 0.0);
-    glVertex2f(0.0,0.6);
-    glColor3f(1.0,0.0,0.0);
-    glVertex2f(-0.6,0.0);
-    glVertex2f(-0.4, -0.6);
-    glColor3f(0.0,1.0,0.0);
-    glVertex2f(0.4, -0.6);
-    glColor3f(0.0,0.0,1.0);
-    glVertex2f(0.6,0.0);
+//    glVertex3f(rectPosX + rectSize, rectPosY, 0.0); //움직이는 사각형
+
+//    glVertex2f(0.0,0.6);
+//    glColor3f(1.0,0.0,0.0);
+//    glVertex2f(-0.6,0.0);
+//    glVertex2f(-0.4, -0.6);
+//    glColor3f(0.0,1.0,0.0);
+//    glVertex2f(0.4, -0.6);
+//    glColor3f(0.0,0.0,1.0);
+//    glVertex2f(0.6,0.0); //오각형
+
+//    glVertex2f(0.0,0.5);
+//    glVertex2f(-0.5, -0.5);
+//    glVertex2f(0.5, -0.5); // 삼각형
+
+//      glVertex2f(0.0, 0.0);
+//      glVertex2f(1.0, 0.0);
+//      glVertex2f(0.0, 1.0);
+//      glVertex2f(1.0, 1.0);
+//      glVertex2f(0.5, 0.5);
 
     glEnd();
 
