@@ -48,6 +48,9 @@ void Widget::resizeGL(int w, int h)
 
 void Widget::paintGL()
 {
+    GLushort arPat[] = {0xaaaa, 0xaaaa, 0xaaaa, 0xaaaa, 0x33ff, 0x33ff, 0x33ff, 0x57ff, 0x57ff};
+    GLint arFac[] = {1,2,3,4,1,2,3,1,2,};
+
     glClear(GL_COLOR_BUFFER_BIT);
     glColor3f(1.0,1.0,1.0); //r,g,b 색상 : 흰색
 
@@ -55,15 +58,15 @@ void Widget::paintGL()
     //glPointSize(10.0);
    // glEnable(GL_POINT_SMOOTH);
 
-    GLfloat w = 1,y;
-    for(y=0.8; y > -0.8; y -= 0.2) {
-        glLineWidth(w++);
-        glBegin(GL_LINES);
-        glVertex2f(-0.8, y);
-        glVertex2f(0.8,y);
-        glEnd();
+//    GLfloat w = 1,y;
+//    for(y=0.8; y > -0.8; y -= 0.2) {
+//        glLineWidth(w++);
+//        glBegin(GL_LINES);
+//        glVertex2f(-0.8, y);
+//        glVertex2f(0.8,y);
+//        glEnd();
 
-    };
+//    }; //선 굵기
 
 
 //    GLfloat x = -0.8;
@@ -100,6 +103,17 @@ void Widget::paintGL()
 //      glVertex2f(1.0, 1.0);
 //      glVertex2f(0.5, 0.5);
 
+    glEnable(GL_LINE_STIPPLE);
+    GLfloat y;
+    GLint idx = 0;
+    for(y = 0.8; y > -0.8; y -= 0.2) {
+        glLineStipple(arFac[idx], arPat[idx]);
+        glBegin(GL_LINES);
+        glVertex2f(-0.8, y);
+        glVertex2f(0.8, y);
+        glEnd();
+        idx++;
+    };
     glEnd();
 
     glFlush();
