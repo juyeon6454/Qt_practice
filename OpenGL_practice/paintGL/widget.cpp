@@ -40,11 +40,11 @@ void Widget::paintGL()
     glClear(GL_COLOR_BUFFER_BIT);
     glColor3f(1.0,1.0,1.0);
 
-    glShadeModel(GL_FLAT); //안쓰면 블랜딩
+//    glShadeModel(GL_FLAT); //안쓰면 블랜딩
 
-    glBegin(GL_TRIANGLE_STRIP);
-    GLfloat x = -0.8;
-    GLfloat y = 0.4;
+//    glBegin(GL_TRIANGLE_STRIP);
+//    GLfloat x = -0.8;
+//    GLfloat y = 0.4;
 
 //    for(int i = 0; i < 6; i++) {
 //        glVertex2f(x,y);
@@ -52,16 +52,26 @@ void Widget::paintGL()
 //        y *= -1;
 //    };
 
-    for(int i = 0; i < 6; i++) {
-        if(i % 2 == 0) {
-            glColor3f(1.0,0.0,0.0);
-        }else {
-            glColor3f(0.0,1.0,0.0);
-        }
-        glVertex2f(x,y);
-        x += 0.3;
-        y *= -1;
-    };
+//    for(int i = 0; i < 6; i++) {
+//        if(i % 2 == 0) {
+//            glColor3f(1.0,0.0,0.0);
+//        }else {
+//            glColor3f(0.0,1.0,0.0);
+//        }
+//        glVertex2f(x,y);
+//        x += 0.3;
+//        y *= -1;
+//    };
+
+
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0.0, 0.5);
+    glVertex2f(-0.5, 0.0);
+    glVertex2f(0.0, 0.0);
+
+    glVertex2f(0.0, 0.0);
+    glVertex2f(0.5, 0.0);
+    glVertex2f(0.0, -0.5);
     glEnd();
     glFlush();
 }
