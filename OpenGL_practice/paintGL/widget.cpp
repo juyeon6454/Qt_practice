@@ -40,7 +40,7 @@ void Widget::paintGL()
     glClear(GL_COLOR_BUFFER_BIT);
     glColor3f(1.0,1.0,1.0);
 
-    glShadeModel(GL_FLAT);
+    glShadeModel(GL_FLAT); //안쓰면 블랜딩
 
     glBegin(GL_TRIANGLE_STRIP);
     GLfloat x = -0.8;
