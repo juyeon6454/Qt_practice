@@ -115,7 +115,7 @@ void Widget::timerFunction()
 
   }
 
-void Widget::keyPressEvent(QKeyEvent* event)
+void Widget::keyPressEventㅇㄹㄹ(QKeyEvent* event)
 {
     switch(event->key()){
     case Qt::Key_Up:
