@@ -4,6 +4,8 @@
 Widget::Widget(QWidget *parent)
     : QOpenGLWidget(parent)
 {
+    bEdge = GL_FALSE;
+
     radius = 0.05;
     delta_theta = 2*M_PI/20;
     theta = 0.0;
@@ -38,7 +40,7 @@ void Widget::resizeGL(int w, int h)
 void Widget::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT);
-    glColor3f(1.0,1.0,1.0);
+//    glColor3f(1.0,1.0,1.0);
 
 //    glShadeModel(GL_FLAT); //안쓰면 블랜딩
 
@@ -64,14 +66,44 @@ void Widget::paintGL()
 //    };
 
 
+//    glBegin(GL_TRIANGLES);
+//    glVertex2f(0.0, 0.5);
+//    glVertex2f(-0.5, 0.0);
+//    glVertex2f(0.0, 0.0);
+
+//    glVertex2f(0.0, 0.0);
+//    glVertex2f(0.5, 0.0);
+//    glVertex2f(0.0, -0.5);
+
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    glEdgeFlag(TRUE);
+
     glBegin(GL_TRIANGLES);
-    glVertex2f(0.0, 0.5);
-    glVertex2f(-0.5, 0.0);
-    glVertex2f(0.0, 0.0);
+    if(bEdge)
+        glEdgeFlag(TRUE);
+    glVertex2f(0.0,0.0);
+    glVertex2f(-0.5, -0.5);
+    if(bEdge)
+        glEdgeFlag(FALSE);
+        glVertex2f(-0.5, -0.5);
 
     glVertex2f(0.0, 0.0);
-    glVertex2f(0.5, 0.0);
-    glVertex2f(0.0, -0.5);
+    if(bEdge)
+        glEdgeFlag(TRUE);
+    glVertex2f(0.5, -0.5);
+    glVertex2f(0.5, 0.5);
+
+    if(bEdge)
+        glEdgeFlag(FALSE);
+    glVertex2f(0.0, 0.0);
+    if(bEdge)
+        glEdgeFlag(TRUE);
+    glVertex2f(-0.5, -0.5);
+    if(bEdge)
+        glEdgeFlag(FALSE);
+    glVertex2f(0.5, -0.5);
+
+
     glEnd();
     glFlush();
 }
@@ -82,3 +114,18 @@ void Widget::timerFunction()
     update();
 
   }
+
+void Widget::keyPressEvent(QKeyEvent* event)
+{
+    switch(event->key()){
+    case Qt::Key_Up:
+        bEdge = GL_TRUE;
+        break;
+
+    case Qt::Key_Down:
+        bEdge = GL_FALSE;
+        break;
+    };
+
+    update();
+}
