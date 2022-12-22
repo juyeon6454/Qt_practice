@@ -136,20 +136,24 @@
 
 //}
 
+//=====================
+
+//#ifdef __APPLE__    // macOS인 경우
+//#include <OpenGL/glu.h>
+//#else                      // Linux 등의 OS인 경우
+//#include <GL/glu.h>
+//#endif
+
 #include "qtglut.h"
-
+//#include <GL/glut.h>
 #include <QtOpenGL>
-#include <cmath>
-
-#ifdef __APPLE__    // macOS인 경우
-#include <OpenGL/glu.h>
-#else                      // Linux 등의 OS인 경우
+#include <math.h>
 #include <GL/glu.h>
-#endif
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
 #endif
+
 
 void doughnut(GLfloat r, GLfloat R, GLint nsides, GLint rings)
 {
