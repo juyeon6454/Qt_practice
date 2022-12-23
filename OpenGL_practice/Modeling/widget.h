@@ -16,6 +16,7 @@ public:
 
     int Action;
 
+    int Rotation;
 private:
     void initializeGL();
     void paintGL();
