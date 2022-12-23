@@ -56,18 +56,50 @@ void Widget::paintGL()
 //    glutWireTeapot(0.2);
 //    glPopMatrix();
 //    glFlush();
+//=============================================
+//    glClear(GL_COLOR_BUFFER_BIT);
+//    glMatrixMode(GL_MODELVIEW);
+//    glPushMatrix();
+//    //glRotated(Rotation++, 1.0, 1.0, 1.0);
+//    glRotatef(0.0,1.0,1.0,1.0);
+//    glScalef(-2.0, 3.0, 1.0);
+//    glutWireTeapot(0.2);
+//    glPopMatrix();
+//    glFlush();
+
+//    update();
+
+    //==========================================
+
 
     glClear(GL_COLOR_BUFFER_BIT);
+
     glMatrixMode(GL_MODELVIEW);
     glPushMatrix();
-    //glRotated(Rotation++, 1.0, 1.0, 1.0);
-    glRotatef(0.0,1.0,1.0,1.0);
-    glScalef(-2.0, 3.0, 1.0);
-    glutWireTeapot(0.2);
+
+    glColor3f(1,1,1);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0.5, 0.8);
+    glVertex2f(0.2, 0.2);
+    glVertex2f(0.8, 0.2);
+    glEnd();
+
+    glTranslatef(0.5, 0.5, 0.0);
+    glRotatef(45.0, 0.0, 0.0, 1.0);
+    glTranslatef(-0.5, -0.5, 0.0);
+
+
+    glColor3f(1,1,0);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0.5, 0.8);
+    glVertex2f(0.2, 0.2);
+    glVertex2f(0.8, 0.2);
+
+
+    glEnd();
+
     glPopMatrix();
     glFlush();
-
-    update();
 }
 
 void Widget::keyPressEvent(QKeyEvent* event)
