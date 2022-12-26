@@ -10,19 +10,16 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    qtglut.cpp \
     widget.cpp
 
 HEADERS += \
-    qtglut.h \
     widget.h
+
 
 windows{
     #LIBS += -lopengl32 -lfreeglut -LC:\glut_project\glut_project\lib\x64
     LIBS += -lopengl32 -lfreeglut -lglu32 -LC:\Qt\6.3.2\msvc2019_64\lib
-
 }
-# Def
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin

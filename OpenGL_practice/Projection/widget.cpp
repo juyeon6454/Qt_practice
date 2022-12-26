@@ -134,23 +134,19 @@ void Widget::keyPressEvent(QKeyEvent* event)
         bNear = -1;
         bFar = 1;
         break;
-
     case Qt::Key_2:         //Frustrum
         bProjection = 1;
         bNear = 1;
         bFar = 10;
         break;
-
     case Qt::Key_3:         //Perspective
         bProjection = 2;
         bNear = 1;
         bFar = 10;
         break;
-
     case Qt::Key_4:         //Pyramid
         bObject = 0;
         break;
-
     case Qt::Key_5:         //Cylinder
         bObject = 1;
         break;
