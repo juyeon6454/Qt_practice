@@ -54,7 +54,7 @@ void Widget::paintGL()
     glRasterPos2f(0.5, 0.5);
     glBitmap(16, 16, 0, 0, 20, 0, bitmap);
     glBitmap(16, 16, 0, 10, 20, 0, bitmap);
-    glBitmap(16, 16, -200, -10, 20, 0, bitmap); //3,4번째가 기준점
+    glBitmap(16, 16, 20, -10, 20, 0, bitmap); //3,4번째가 기준점
     glFlush();
 }
 

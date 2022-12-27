@@ -64,6 +64,9 @@ void Widget::paintGL()
         glRasterPos2f(-0.5, -0.5);
         glDrawPixels(image->width(), image->height(),GL_BGRA, GL_UNSIGNED_BYTE, data);
     }
+
+    glRasterPos2f(-1.0, -0.5);
+    glCopyPixels(100, 100, 80, 50, GL_COLOR);
     glFlush();
 }
 
