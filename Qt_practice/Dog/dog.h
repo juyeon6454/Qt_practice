@@ -22,5 +22,6 @@ private slots:
 
     void bark();
     void rollover();
+    void simple();
 };
 #endif // DOG_H
