@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/prefix1">
+        <file>Image/Path_PushButton_Icon.png</file>
+    </qresource>
+</RCC>
