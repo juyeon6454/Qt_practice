@@ -7,10 +7,8 @@
 #include <QFileDialog>
 #include <QValidator>
 #include <QDebug>
-#include <QDataStream>
 #include <QMessageBox>
-#include <QTimer>
-#include <QThread>
+#include <QDataStream>
 
 Stitching::Stitching(QWidget *parent) :
     QWidget(parent),
@@ -20,294 +18,180 @@ Stitching::Stitching(QWidget *parent) :
 
     /* splitter의 기본 사이즈 조절 */
     QList<int> sizes;
-    sizes<<600 << 300;
+    sizes<< 600 << 300;
     ui->splitter->setSizes(sizes);
 
-    /* width, height lineEdit에 숫자만 입력 받음 */
-    QIntValidator* intValidator = new QIntValidator;
-    //ui->width_lineEdit_2->setValidator(intValidator);
-    ui->height_lineEdit_2->setValidator(intValidator);
-
     resize(1000,600);
-
 }
 
 Stitching::~Stitching()
 {
-    delete ui;
+    delete ui;    // ui delete
 }
 
-int Stitching::on_Stitching_pushButton_clicked()
-{
 
-    /* lineEdit에서 받아온 경로, 해상도를 변수로 지정 */
-    //QString file_path = "PATH=" + ui->path_lineEdit_2->text();
-    //int width = ui->width_lineEdit_2->text().toInt();
-    //int height = ui->height_lineEdit_2->text().toInt();
+int Stitching::on_stitchingPushButton_clicked()
+{
+    /* 실행할 파일 경로를 변수로 지정 */
+    QString panoPath = "C:/calibration_mentoring/exe_Pano/Regi_Based_EXE.exe";
+    QString cephPath = "C:/calibration_mentoring/exe_Ceph/CephImgProc.exe";
 
     /* lineEdit으로 받아온 변수를 실행파일 명령인자로 넣어줌 */
-   // QProcess process;
-    QStringList args;
-     args << "DEVICE=T1" << "SENSOR=XID-C24DC" << "PATH=C:/calibration_mentoring/Ceph/Human1" << "FileNameFormat=%04d.raw";
+    QStringList panoArgs;
+    QStringList cephArgs;
+    panoArgs << "sensor=3" << "exe_test_frame_path="+ui->filePathLineEdit->text();
+    cephArgs << "DEVICE=T1" << "SENSOR=XID-C24DC" <<  "PATH="+ui->filePathLineEdit->text() << "FileNameFormat=%04d.raw";
 
-         //<< QString::number(width) << QString::number(height) ;
-   // process.start("C:/calibration_mentoring/exe_Ceph/CephImgProc.exe");
+    process = new QProcess(this);   //프로세스 생성
 
-   // QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-   // env.insert("TMPDIR", "C:/calibration_mentoring/exe_Ceph"); // Add an environment variable
-    //process.setProcessEnvironment(env);
-    //QString word = process.readAllStandardOutput();
-    //process.start("./exe_Ceph/CephImgProc.exe",args);
-
-       QProcess *process = new QProcess();
-       process->start("C:/calibration_mentoring/exe_Ceph/CephImgProc.exe",args);
-
-
-       // wait for the process to start
-       if (!process->waitForStarted()) {
-           qDebug() << "Could not start process.";
-           return 1;
-       }
-
-//       // wait for a certain amount of time
-//       QThread::sleep(20);
-
-
-       // write a newline to the process's standard input
-//       QTextStream stream(process);
-//       stream << Qt::endl;
-
-
-//       // print the output of the process
-//       qDebug() << process->readAll();
-//       // terminate the process
-//       process->terminate();
-
-
-       // Check if the process is running
-       if (process->state() == QProcess::Running) {
-           qDebug() << "The process is running.";
-       } else {
-           qDebug() << "The process is not running.";
-       }
-
-       // Wait for the process to finish
-       if (!process->waitForFinished()) {
-           qDebug() << "The process failed to finish:" << process->errorString();
-           return 1;
-       }
-
-       qDebug() << "The process finished successfully with exit code:" << process->exitCode();
-
-       // wait for the process to finish
-       if (!process->waitForFinished(50000)) {
-           qDebug() << "Could not wait for process to finish.";
-           return 1;
-       }
-
-      // process->waitForStarted();
-
-       //qDebug() << "Process started, PID:";
-
-       // Terminate the process after 5 seconds
-       //QTimer::singleShot(50000, [process] {
-           //if (process->state() == QProcess::Running) {
-                       //qDebug() << "Process running for too long, forcing termination";
-                       //process->kill();
-                       //process->waitForFinished();
-                   //}
-
-           //qDebug() << "Process finished with exit code:" << process->exitCode();
-       //});
-
-          //process->waitForFinished();
-
-          // return process->exec(
-           //return process->kill();
-           //return process->terminate();
-       ////
-       ///
-       ///
-//       process->waitForStarted();
-
-//       qDebug() << "Process started, PID:" ;
-
-//       // Terminate the process after 5 seconds
-//       //QThread::sleep(40);
-//       process->start(40000);
-//       process->terminate();
-//       //process->kill();
-//      // process->waitForFinished();
-
-//       qDebug() << "Process finished with exit code:" << process->exitCode();
-
-       //return 0;
-
-//    QTimer *killtimer = new QTimer(process);
-//    killtimer->setTimeout(30000); // 5 seconds
-//    killtimer->setSingleShot(true); // should happen only once per process start
-
-//    // make the timer's timeout to terminate the process
-//    killtimer->connect(killtimer->timeout(),process.terminate());
-
-
-
-    /* 외부 프로그램 실행 후 바로 현재 프로그램의 이후 코드 진행 (외부와 현재 코드 병렬 실행시)*/
-//    if (!process.waitForStarted(-1))
-//    {
-//    qDebug() << "Failed to start the process.";
-//    return 1;
-//    }
-   // process.waitForReadyRead ();
-
-    //process.killTimer();
-
-//    if (!process.waitForFinished(30000))
-//    {
-//    qDebug() << "The process failed to finish.";
-//    return 1;
-//    }
-
-    //process.kill();
-    //process.terminate();
-
-//    /* 성공적인 종료시 exitCode 0 */
-//    if(process.exitCode()==0)
-//    {
-//    qDebug() << "Process finished with exit code:" << process.exitCode();
-//    QMessageBox::information(this, "Calibration", "The process is finally complete.");
+//    // Show the custom dialog widget
+//    if(ui->filePathLineEdit!=nullptr){
+//        dialog = new QProgressDialog("stitching,,,","Cancel",0,100, this);
+//        dialog->setWindowModality(Qt::WindowModal);
+//        dialog->setMinimumDuration(10);
+//        dialog->setModal(true);
+//        dialog->show();
 //    }
 
 
-    /* lineEdit에서 받아온 경로, 해상도를 변수로 지정 */
-    //QString raw_path = ui->path_lineEdit_2->text() + "/Result/result.raw";
-    //QString bmp_path = ui->path_lineEdit_2->text() + "/Result/result2.bmp";
-    /* test하기 위해서 파일 탐색기로 raw 파일 받아옴 (나중에 경로 지정해서 삭제) */
-    //QString filename = QFileDialog::getOpenFileName(this, "Open file", "C:\\Users\\KOSA\\OneDrive\\바탕 화면");
-    //QString filename = "C:/calibration_mentoring/exe_Ceph/Ceph_Stitched.raw";
-    //QString bmp_path = "C:/calibration_mentoring/exe_Ceph/Ceph_Stitched.bmp";
+    /* panorama radiobutton 클릭시 panorma 정합 파일 실행 */
+    if(ui->panoRadioButton->isChecked()){
 
+        process->start(panoPath,panoArgs);
 
-// /* raw 파일 image를 변환해서 Label에 출력 */
-//    QFile *file;
+        std::string _workingPath = (panoPath.toStdString()).substr(0, (panoPath.toStdString()).find_last_of('/'));
+        process->setWorkingDirectory(QString::fromStdString(_workingPath));
+    }
 
-//    /* 파일이 존재할시 */
-//    if(filename.length()) {
-//        /* file open */
-//        file = new QFile(filename);
-//        file->open(QFile::ReadOnly);
+    /* cephalo radiobutton 클릭시 cephalo 정합 파일 실행 */
+    else if(ui->cephRadioButton->isChecked()){
 
-//        /* byteArray로 file을 읽음 */
-//        QByteArray byteArray;
-//        byteArray = file->readAll();
+        process->start(cephPath,cephArgs);
 
-//        /* byteArray size의 unsigned char 타입의 data 배열 선언 */
-//        unsigned char* data = new unsigned char[ byteArray.size() ];
-//        /* data 배열에 byteArray에 담긴 data를 byteArray size 만큼 복사 */
-//        memcpy( data, byteArray.data(), byteArray.size() );
-
-//        /* data를 해당 크기만큼 gray 16bit 형식으로 열어줌 */
-//        QImage image;
-//        QImage *temp = new QImage(data, 3000, 2400,QImage::Format_Grayscale16);
-//        image = *temp;
-
-//        /* 열어준 image를 bmp형식으로 저장해줌 */
-//        image.save(bmp_path, "BMP");
-//        QPixmap bmp_image;
-//        bmp_image = QPixmap(bmp_path);
-
-//        /* label에 비율 맞춰서 image 띄움 */
-//        ui->View_label->setPixmap(bmp_image.scaled(800, 800, Qt::KeepAspectRatio));
-//        //ui->View_label->setPixmap(QPixmap::fromImage(bmp_image).scaled(800, 800, Qt::KeepAspectRatio));
-//        ui->View_label->show();
-
-//        /* stitching 된 파일 경로를 띄워줌 (원래 전송하기 위해서 만들었음 - 삭제)*/
-//        //ui->send_label->setText(raw_path);
-//    }
+        std::string _workingPath = (cephPath.toStdString()).substr(0, (cephPath.toStdString()).find_last_of('/'));
+        process->setWorkingDirectory(QString::fromStdString(_workingPath));
+    }
 
 
 
+    /* 외부 프로그램 실행 후 바로 현재 프로그램의 이후 코드 진행 (외부와 현재 코드 병렬 실행시)
+    * wait for the process to start */
+    if (!process->waitForStarted()) {
+        qDebug() << "Could not start process.";
+        QMessageBox::information(this, "Calibration", "Please enter again");
+        return 1;
+    }
 
-/* raw 파일 이미지를 bmp로 변환해서 출력 (x) */
+    /* Check if the process is running */
+    if (process->state() == QProcess::Running) {
+       qDebug() << "The process is running.";
+    } else {
+       qDebug() << "The process is not running.";
+    }
 
-//    QFile file(raw_path);
-//    if (!file.open(QFile::ReadOnly)){
-//        qDebug("Could not open file");
-//    } else {
-//        qDebug() << file.fileName() << " opened";
-//    }
+    /* Wait for the process to finish */
+    if (process->waitForFinished(10000) == false) {
+        qDebug() << process->error();
+        qDebug() << "The process failed  process->errorString();to finish:" <<
+        QMessageBox::information(this, "Calibration", "The process is finally complete.");
+    }
 
-//    QByteArray array =file.readAll();
-//    unsigned char* Data = (unsigned char*)&array.data()[0];
-//    QImage raw_image(Data,3693,1628,QImage::Format_Grayscale16);
 
-//    //QImage raw_image(raw_path);
-//    if (raw_image.isNull()){
-//      qDebug() << "Failed to load the image.";
-//      return 1;
-//    }
+ /* raw 파일 image를 변환해서 Label에 출력 */
+    QFile *file;    //파일 생성
 
-//    // Copy the raw data into the image
-//    memcpy(raw_image.bits(), array.constData(), array.size());
-//    raw_image.save(bmp_path, "BMP");
+    if(ui->cephRadioButton->isChecked())
+    {
+        //QString fileName = "C://calibration_mentoring//exe_Ceph//Ceph_ImgProged.raw";
+        QString fileName = "./Ceph_ImgProged.raw";
+        QString bmpPath = ui->filePathLineEdit->text()+"_Ceph_ImgProged.bmp";
 
-//    QPixmap bmp_image;
-//    bmp_image = QPixmap(bmp_path);
+        /* 파일이 존재할시 */
+        if(fileName.length()) {
+            /* file open */
+            file = new QFile(fileName);
+            file->open(QFile::ReadOnly);
 
-//    ui->View_label->setPixmap(bmp_image.scaled(3693, 1628, Qt::KeepAspectRatio));
-//    ui->View_label->setPixmap(QPixmap::fromImage(raw_image).scaled(800, 800, Qt::KeepAspectRatio));
-//    ui->View_label->show();
-//    ui->send_label->setText(raw_path);
+            /* byteArray로 file을 읽음 */
+            QByteArray byteArray;
+            byteArray = file->readAll();
 
-//    QString filename = QFileDialog::getOpenFileName(this, "Open file", "C:\\Users\\KOSA\\OneDrive\\바탕 화면");
-//    QPixmap pixmap;
-//    QFile *file;
-//    QImage image(3000, 1628, QImage::Format_Grayscale16);
+            /* byteArray size의 unsigned char 타입의 data 배열 선언 */
+            unsigned char* data = new unsigned char[ byteArray.size() ];
+            /* data 배열에 byteArray에 담긴 data를 byteArray size 만큼 복사 */
+            memcpy( data, byteArray.data(), byteArray.size() );
 
-//    if(filename.length()) {          // 파일이 존재한다면
-//        file = new QFile(filename);
-//        file->open(QFile::ReadOnly);
+            /* data를 해당 크기만큼 gray 16bit 형식으로 열어줌 */
+            QImage image;
+            QImage *temp = new QImage(data, 3000, 2400,QImage::Format_Grayscale16);
+            image = *temp;
 
-//        QByteArray byteArray;
-//        byteArray = file->readAll();
+            /* 열어준 image를 bmp형식으로 저장해줌 */
+            image.save(bmpPath, "BMP");
+            QPixmap bmpImage;
+            bmpImage = QPixmap(bmpPath);
 
-//        QImage image(3000, 1628, QImage::Format_RGB32);
+            /* label에 비율 맞춰서 image 띄움 */
+            ui->viewLabel->setPixmap(bmpImage.scaled(700, 650, Qt::KeepAspectRatio));
+            ui->viewLabel->show();
 
-//       // unsigned char* data = new unsigned char[ byteArray.size() ];
-//        memcpy(image.bits(), byteArray.data(), byteArray.size());
+            ui-> resultLabel->setText(fileName);
+        }
+    }
 
-//            // Convert the image to 8-bit grayscale format
-//        image.convertToFormat(QImage::Format_Grayscale8);
+        if(ui->panoRadioButton->isChecked()){
 
-//        //image.convertToFormat(QImage::Format_Indexed8);
-//        image.save(bmp_path, "BMP");
+            QString fileName = "./_calibration_mentoring_pano_SkullResult_u16_post_d1_p7.raw";
+            QString bmpPath = ui->filePathLineEdit->text()+"_Pano_Stitched.bmp";
 
-//        ui->View_label->setPixmap(QPixmap::fromImage(image).scaled(800, 800, Qt::KeepAspectRatio));
-//        ui->View_label->show();
+            /* 파일이 존재할시 */
+            if(fileName.length()) {
+                /* file open */
+                file = new QFile(fileName);
+                file->open(QFile::ReadOnly);
 
-//    }
+                /* byteArray로 file을 읽음 */
+                QByteArray byteArray;
+                byteArray = file->readAll();
 
-//    return;
+                /* byteArray size의 unsigned char 타입의 data 배열 선언 */
+                unsigned char* data = new unsigned char[ byteArray.size() ];
+                /* data 배열에 byteArray에 담긴 data를 byteArray size 만큼 복사 */
+                memcpy( data, byteArray.data(), byteArray.size() );
+
+                /* data를 해당 크기만큼 gray 16bit 형식으로 열어줌 */
+                QImage image;
+                QImage *temp = new QImage(data, 3000, 1628,QImage::Format_Grayscale16);
+                image = *temp;
+
+                /* 열어준 image를 bmp형식으로 저장해줌 */
+                image.save(bmpPath, "BMP");
+                QPixmap bmpImage;
+                bmpImage = QPixmap(bmpPath);
+
+                /* label에 비율 맞춰서 image 띄움 */
+                ui->viewLabel->setPixmap(bmpImage.scaled(800, 400, Qt::IgnoreAspectRatio));
+                ui->viewLabel->show();
+                ui-> resultLabel->setText(fileName);
+            }
+        }
+    return 0;
 
 }
 
-
-void Stitching::on_path_pushButton_2_clicked()
+/* lineEdit에 있는 text를 비움 */
+void Stitching::on_clearPushButton_clicked()
 {
-    /* button을 눌러서 파일 탐색기로 경로를 지정 */
-    QString searchLocation = QFileDialog::getExistingDirectory(this, "Search Folder", QDir::homePath(),QFileDialog::ShowDirsOnly);
+    ui->filePathLineEdit->clear();
+    ui->viewLabel->clear();
+    ui->resultLabel->clear();
+}
+
+/* button을 눌러서 파일 탐색기로 경로를 지정 */
+void Stitching::on_filePathPushButton_clicked()
+{
+    QString searchLocation = QFileDialog::getExistingDirectory(this, "Search Folder", "C://calibration_mentoring" ,QFileDialog::ShowDirsOnly);
     qDebug() << searchLocation;
-    ui->path_lineEdit_2->setText(searchLocation);
-}
-
-
-
-
-void Stitching::on_Clear_pushButton_2_clicked()
-{
-    /* lineEdit에 있는 text를 비움 */
-    ui->path_lineEdit_2->clear();
-    ui->width_lineEdit_2->clear();
-    ui->height_lineEdit_2->clear();
+    ui->filePathLineEdit->setText(searchLocation);
 }
 

@@ -24,7 +24,7 @@ color: rgb(184,191,200);
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <widget class="QLabel" name="View_label">
+     <widget class="QLabel" name="viewLabel">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -55,15 +55,9 @@ QLabel::setAlignment (Qt::AlignHCenter );
       </property>
      </widget>
      <widget class="QWidget" name="">
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QVBoxLayout" name="rightVerticalLayout">
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout_6">
-         <property name="spacing">
-          <number>5</number>
-         </property>
-         <property name="sizeConstraint">
-          <enum>QLayout::SetMinimumSize</enum>
-         </property>
+        <layout class="QVBoxLayout" name="rightVBoxLayout">
          <property name="leftMargin">
           <number>50</number>
          </property>
@@ -77,7 +71,7 @@ QLabel::setAlignment (Qt::AlignHCenter );
           <number>50</number>
          </property>
          <item>
-          <spacer name="verticalSpacer_4">
+          <spacer name="topVerticalSpacer">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
            </property>
@@ -90,11 +84,11 @@ QLabel::setAlignment (Qt::AlignHCenter );
           </spacer>
          </item>
          <item>
-          <layout class="QVBoxLayout" name="verticalLayout_7">
+          <layout class="QVBoxLayout" name="inputVerticalLayout">
            <item>
-            <layout class="QVBoxLayout" name="verticalLayout_8">
+            <layout class="QVBoxLayout" name="pathVerticalLayout">
              <item>
-              <widget class="QLabel" name="label_4">
+              <widget class="QLabel" name="pathLabel">
                <property name="font">
                 <font>
                  <bold>true</bold>
@@ -113,9 +107,9 @@ QLabel::setAlignment (Qt::AlignHCenter );
               </widget>
              </item>
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <layout class="QHBoxLayout" name="pathHorizontalLayout">
                <item>
-                <widget class="QLineEdit" name="path_lineEdit_2">
+                <widget class="QLineEdit" name="filePathLineEdit">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                    <horstretch>0</horstretch>
@@ -131,7 +125,7 @@ QLabel::setAlignment (Qt::AlignHCenter );
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="path_pushButton_2">
+                <widget class="QPushButton" name="filePathPushButton">
                  <property name="enabled">
                   <bool>true</bool>
                  </property>
@@ -148,101 +142,12 @@ QLabel::setAlignment (Qt::AlignHCenter );
                   </size>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">border-image:url(&quot;./path_pushbutton_icon.png&quot;)</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_5">
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_9">
-               <item>
-                <widget class="QLabel" name="label_5">
-                 <property name="minimumSize">
-                  <size>
-                   <width>35</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-color: rgb(184,191,200);
-QLabel::setAlignment (Qt::AlignVCenter );
-QLabel::setAlignment (Qt::AlignHCenter );
+                  <string notr="true">QPushButton{
+border-image:url(:/prefix1/Image/Path_PushButton_Icon.png)
 }</string>
                  </property>
                  <property name="text">
-                  <string>Width (pixel)</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="width_lineEdit_2">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>25</height>
-                  </size>
-                 </property>
-                 <property name="text">
                   <string/>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_10">
-               <item>
-                <widget class="QLabel" name="label_6">
-                 <property name="font">
-                  <font>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-color: rgb(184,191,200);
-QLabel::setAlignment (Qt::AlignVCenter );
-QLabel::setAlignment (Qt::AlignHCenter );
-}</string>
-                 </property>
-                 <property name="text">
-                  <string>Height (pixel)</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="height_lineEdit_2">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>25</height>
-                  </size>
                  </property>
                 </widget>
                </item>
@@ -253,7 +158,89 @@ QLabel::setAlignment (Qt::AlignHCenter );
           </layout>
          </item>
          <item>
-          <spacer name="verticalSpacer_5">
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QRadioButton" name="panoRadioButton">
+             <property name="styleSheet">
+              <string notr="true">.checks {
+    position: relative;
+    height: 20px;
+    padding: 30px;
+    line-height: 20px;
+}
+.checks label {
+    font-size: 16px;
+    color: #666;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+            
+.checks input[type=&quot;radio&quot;] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+.checks input[type=&quot;radio&quot;]+label {
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+            
+.checks input[type=&quot;radio&quot;]+label:before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 0px;
+    width: 14px;
+    height: 14px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #cacece;
+    border-radius: 100%;
+    box-shadow: none;
+}
+.checks input[type=&quot;radio&quot;]:checked+label:before {
+    background: #fff;
+    border-color: #e86138;
+} 
+            
+.checks input[type=&quot;radio&quot;]:checked+label:after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 5px;
+    width: 14px;
+    height: 14px;
+    background: #e86138;
+    border-radius: 100%;
+    box-shadow: none;
+}</string>
+             </property>
+             <property name="text">
+              <string>Panorama</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="cephRadioButton">
+             <property name="text">
+              <string>Cephalo</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="middleVerticalSpacer">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
            </property>
@@ -266,9 +253,9 @@ QLabel::setAlignment (Qt::AlignHCenter );
           </spacer>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <layout class="QHBoxLayout" name="buttonHorizontalLayout">
            <item>
-            <widget class="QPushButton" name="Stitching_pushButton">
+            <widget class="QPushButton" name="stitchingPushButton">
              <property name="enabled">
               <bool>true</bool>
              </property>
@@ -335,7 +322,7 @@ background-color: rgb(103, 104, 114);
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="Clear_pushButton_2">
+            <widget class="QPushButton" name="clearPushButton">
              <property name="enabled">
               <bool>true</bool>
              </property>
@@ -404,7 +391,7 @@ background-color: rgb(103, 104, 114);
           </layout>
          </item>
          <item>
-          <spacer name="verticalSpacer_6">
+          <spacer name="bottomVerticalSpacer">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
            </property>
@@ -419,9 +406,9 @@ background-color: rgb(103, 104, 114);
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_8">
+        <layout class="QHBoxLayout" name="resultHorizontalLayout">
          <item>
-          <spacer name="horizontalSpacer">
+          <spacer name="resultHorizontalSpacer">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -434,7 +421,7 @@ background-color: rgb(103, 104, 114);
           </spacer>
          </item>
          <item>
-          <widget class="QLabel" name="send_label">
+          <widget class="QLabel" name="resultLabel">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -468,7 +455,7 @@ background-color: rgb(103, 104, 114);
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="Send_pushButton">
+          <widget class="QPushButton" name="reultPushButton">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>

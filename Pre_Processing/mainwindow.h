@@ -13,19 +13,19 @@ class Stitching;
 
 class MainWindow : public QMainWindow
 {
-    Q_OBJECT
+    Q_OBJECT    // signal_slot을 위한 Q_OBJECT 상속
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    MainWindow(QWidget *parent = nullptr);  // 생성자
+    ~MainWindow();                          // 소멸자
 
     Calibration *calibration;
     Stitching *stitching;
 
-private slots:
-
-
 private:
     Ui::MainWindow *ui;
+
+private slots:
+
 };
 #endif // MAINWINDOW_H
